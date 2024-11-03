@@ -110,8 +110,8 @@ const PaidRentals = ({
     },
     {
       title: "Return Time",
-      dataIndex: "endTime",
-      key: "endTime",
+      dataIndex: "returnTime",
+      key: "returnTime",
     },
     {
       title: "Total Cost",

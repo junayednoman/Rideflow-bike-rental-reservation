@@ -6,8 +6,10 @@ import RSpinner from "@/components/layout/ui/RSpinner";
 import RNoData from "@/components/layout/ui/RNoData";
 import { TBike } from "@/types";
 
-const FeaturedItems = () => {
-  const { data, isFetching } = useGetAllBikesQuery(undefined);
+const FeaturedItems = ({ limit = 6 }: { limit?: number }) => {
+  const { data, isFetching } = useGetAllBikesQuery([
+    { name: "limit", value: limit },
+  ]);
 
   return (
     <section className="lg:py-24 md:py-20 py-16">

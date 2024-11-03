@@ -14,7 +14,7 @@ type TProductCard = {
 const ProductCard = ({ details }: TProductCard) => {
   const navigate = useNavigate();
   const handleGoToBikeDetails = (_id: string) => {
-    return navigate(`/dashboard/user/bikes/${_id}`, {
+    return navigate(`/bikes/${_id}`, {
       replace: true,
       state: {
         targetUrl: `/dashboard/user/bikes/${_id}`,

@@ -13,6 +13,7 @@ import PaymentSuccess from "@/pages/PaymentSuccess";
 import AdvancePaymentFailure from "@/pages/AdvancePaymentFailure";
 import PaymentFailure from "@/pages/PaymentFailure";
 import ErrorPage from "@/pages/ErrorPage";
+import BikeDetail from "@/pages/dashboard/BikeDetail";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/bikes/:bikeId",
+        element: <BikeDetail />,
       },
     ],
   },
