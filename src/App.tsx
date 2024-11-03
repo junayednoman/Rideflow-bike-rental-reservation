@@ -12,7 +12,7 @@ const App = () => {
   const mode = useAppSelector(useGetCurrentMode);
 
   return (
-    <div className={`${mode || "light"} bg-white dark:bg-primaryColor`}>
+    <main className={`${mode || "light"} bg-white dark:bg-primaryColor`}>
       <Helmet>
         <title>Rideflow - Ride the Future, One Pedal at a Time.</title>
       </Helmet>
@@ -23,7 +23,7 @@ const App = () => {
       <WhyChooseUs />
       <HowItWorks />
       <Contact />
-    </div>
+    </main>
   );
 };
 

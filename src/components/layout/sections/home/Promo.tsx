@@ -4,7 +4,7 @@ import promo_2 from "../../../../assets/images/promo-bike-2.jpg";
 
 const Promo = () => {
   return (
-    <div>
+    <section>
       <div className="grid xl:grid-cols-2 items-center">
         {/* Promo Item 1 */}
         <div className="overflow-hidden">
@@ -38,9 +38,9 @@ const Promo = () => {
           style={{
             backgroundImage: `url(${promo_2})`,
           }}
-          className="overflow-hidden xl:block hidden"
+          className="overflow-hidden xl:block hidden bg-no-repeat bg-cover bg-center"
         >
-          <div className="bg-cover bg-center text-white cursor-pointer">
+          <div className=" text-white cursor-pointer">
             <div className="bg-black bg-opacity-25 p-20 px-24 flex flex-col justify-end promoContent xl:min-h-[600px]">
               <h2 className="text-4xl uppercase font-bold">
                 Summer Special: 30% Off All
@@ -59,7 +59,7 @@ const Promo = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -11,7 +11,7 @@ const Contact = () => {
     console.log(data);
   };
   return (
-    <div className="xl:py-24 md:py-20 py-16">
+    <section className="xl:py-24 md:py-20 py-16">
       <RContainer>
         <RSectionTitle
           heading="Contact Now"
@@ -30,7 +30,7 @@ const Contact = () => {
           </RForm>
         </div>
       </RContainer>
-    </div>
+    </section>
   );
 };
 

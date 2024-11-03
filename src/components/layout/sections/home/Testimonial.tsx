@@ -6,7 +6,7 @@ import testiImage from "@/assets/images/testi.jpg";
 
 const Testimonial = () => {
   return (
-    <div
+    <section
       style={{ backgroundImage: `url(${testiImage})` }}
       className=" bg-cover bg-center bg-no-repeat testimonial"
     >
@@ -38,7 +38,7 @@ const Testimonial = () => {
           </Carousel>
         </RContainer>
       </div>
-    </div>
+    </section>
   );
 };
 

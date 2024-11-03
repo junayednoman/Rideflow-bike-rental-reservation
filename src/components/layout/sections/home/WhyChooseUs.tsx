@@ -4,7 +4,7 @@ import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 
 const WhyChooseUs = () => {
   return (
-    <div className="md:py-24 py-16">
+    <section className="md:py-24 py-16">
       <RContainer>
         <RSectionTitle
           heading="Why Choose Us"
@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
           </div>
         </div>
       </RContainer>
-    </div>
+    </section>
   );
 };
 

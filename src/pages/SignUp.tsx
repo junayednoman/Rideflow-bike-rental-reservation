@@ -12,6 +12,7 @@ import { signValidationSchema } from "@/validation";
 import { useAppDispatch } from "@/redux/hooks";
 import { logOut } from "@/redux/features/authSlice";
 import { Helmet } from "react-helmet";
+import { ArrowLeft } from "lucide-react";
 
 const SignUp = () => {
   const [signUp] = useSignUpMutation();
@@ -27,53 +28,65 @@ const SignUp = () => {
   };
 
   return (
-    <div className="md:py-24 py-16">
-      <Helmet>
-        <title>Sign Up - Rideflow</title>
-      </Helmet>
-      <RContainer>
-        <div className="md:w-[600px] mx-auto">
-          <RSectionTitle
-            heading="Join Us Today"
-            subHeading="start your adventure"
-          />
-          <RForm
-            resolver={zodResolver(signValidationSchema)}
-            handleFormSubmit={handleFormSubmit}
-          >
-            <RInput label="Name" name="name" placeholder="enter your name" />
-            <RInput label="Email" name="email" placeholder="enter your email" />
-            <RInput
-              label="Phone"
-              name="phone"
-              placeholder="enter your phone number"
+    <section>
+      <div className="md:ml-24 ml-8 sm:mt-10 mt-6">
+        <Link to={"/"} className="text-xl font-medium flex items-center gap-2">
+          <ArrowLeft size={25} />
+          Back to home
+        </Link>
+      </div>
+      <div className="md:py-16 py-12">
+        <Helmet>
+          <title>Sign Up - Rideflow</title>
+        </Helmet>
+        <RContainer>
+          <div className="md:w-[600px] mx-auto">
+            <RSectionTitle
+              heading="Join Us Today"
+              subHeading="start your adventure"
             />
-            <RInput
-              label="Password"
-              name="password"
-              placeholder="enter a password"
-            />
-            <RInput
-              label="Address"
-              name="address"
-              placeholder="enter your address"
-            />
-            <RButtonSmall type="submit">Submit</RButtonSmall>
-          </RForm>
-          <div className="mt-6">
-            <p>
-              Already have an account?{" "}
-              <Link
-                className="underline font-medium hover:text-accentColor duration-200"
-                to={"/login"}
-              >
-                Login
-              </Link>
-            </p>
+            <RForm
+              resolver={zodResolver(signValidationSchema)}
+              handleFormSubmit={handleFormSubmit}
+            >
+              <RInput label="Name" name="name" placeholder="enter your name" />
+              <RInput
+                label="Email"
+                name="email"
+                placeholder="enter your email"
+              />
+              <RInput
+                label="Phone"
+                name="phone"
+                placeholder="enter your phone number"
+              />
+              <RInput
+                label="Password"
+                name="password"
+                placeholder="enter a password"
+              />
+              <RInput
+                label="Address"
+                name="address"
+                placeholder="enter your address"
+              />
+              <RButtonSmall type="submit">Submit</RButtonSmall>
+            </RForm>
+            <div className="mt-6">
+              <p>
+                Already have an account?{" "}
+                <Link
+                  className="underline font-medium hover:text-accentColor duration-200"
+                  to={"/login"}
+                >
+                  Login
+                </Link>
+              </p>
+            </div>
           </div>
-        </div>
-      </RContainer>
-    </div>
+        </RContainer>
+      </div>
+    </section>
   );
 };
 

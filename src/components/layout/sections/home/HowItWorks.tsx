@@ -4,7 +4,7 @@ import howItWorks from "@/assets/images/bike.jpg";
 
 const HowItWorks = () => {
   return (
-    <div
+    <section
       style={{ backgroundImage: `url(${howItWorks})` }}
       className="bg-center bg-cover bg-no-repeat"
     >
@@ -53,7 +53,7 @@ const HowItWorks = () => {
           </div>
         </RContainer>
       </div>
-    </div>
+    </section>
   );
 };
 

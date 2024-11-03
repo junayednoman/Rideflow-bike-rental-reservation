@@ -17,24 +17,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logOut, useGetCurrentUser } from "@/redux/features/authSlice";
 import { toast } from "sonner";
 import { changeTheme, useGetCurrentMode } from "@/redux/features/themeSlice";
-const menuItems = [
-  {
-    label: "home",
-    link: "/",
-  },
-  {
-    label: "about",
-    link: "/about",
-  },
-  {
-    label: "blogs",
-    link: "/",
-  },
-  {
-    label: "contact",
-    link: "/",
-  },
-];
+import { menuItems } from "@/constant/navbar.constant";
 
 const Header = () => {
   const user = useAppSelector(useGetCurrentUser);
@@ -166,7 +149,9 @@ const Header = () => {
                   </a>
                 </Dropdown>
               ) : (
-                <RButtonSmallWhite link="/login">Login</RButtonSmallWhite>
+                <div className="sm:block hidden">
+                  <RButtonSmallWhite link="/login">Login</RButtonSmallWhite>
+                </div>
               )}
             </div>
             <div className="col-span-1 ml-auto lg:hidden block">

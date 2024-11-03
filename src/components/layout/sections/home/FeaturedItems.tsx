@@ -10,7 +10,7 @@ const FeaturedItems = () => {
   const { data, isFetching } = useGetAllBikesQuery(undefined);
 
   return (
-    <div className="lg:py-24 md:py-20 py-16">
+    <section className="lg:py-24 md:py-20 py-16">
       <RContainer>
         <div>
           <RSectionTitle
@@ -34,7 +34,7 @@ const FeaturedItems = () => {
           )}
         </div>
       </RContainer>
-    </div>
+    </section>
   );
 };
 

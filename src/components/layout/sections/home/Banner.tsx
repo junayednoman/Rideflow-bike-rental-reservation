@@ -12,7 +12,7 @@ const Banner = () => {
     // console.log("search product");
   };
   return (
-    <div className="relative md:h-screen overflow-hidden text-center">
+    <section className="relative md:h-screen overflow-hidden text-center">
       {/* Video Background */}
       <video
         autoPlay
@@ -62,7 +62,7 @@ const Banner = () => {
           </RForm>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

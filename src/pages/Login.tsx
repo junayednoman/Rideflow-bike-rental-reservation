@@ -12,7 +12,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import { TJwtPayload, TResponse, TUser } from "@/types";
 import { Helmet } from "react-helmet";
-
+import { ArrowLeft } from "lucide-react";
 
 const Login = () => {
   const location = useLocation();
@@ -37,38 +37,48 @@ const Login = () => {
     handleMutation(data, login, "User is being logged in...", onSuccess);
   };
   return (
-    <div className="md:py-24 py-16">
-      <Helmet>
-        <title>Login - Rideflow</title>
-      </Helmet>
-      <RContainer>
-        <div className="md:w-[600px] mx-auto">
-          <RSectionTitle heading="Login now" subHeading="Welcome back" />
-          <RForm
-            handleFormSubmit={handleForm}
-          >
-            <RInput label="Email" name="email" placeholder="Enter your email" />
-            <RInput
-              label="Password"
-              name="password"
-              placeholder="Enter your password"
-            />
-            <RButtonSmall type="submit">Login</RButtonSmall>
-          </RForm>
-          <div className="mt-6">
-            <p>
-              Don not have an account?{" "}
-              <Link
-                className="underline font-medium hover:text-accentColor duration-200"
-                to={"/sign-up"}
-              >
-                Sign Up
-              </Link>
-            </p>
+    <section>
+      <div className="md:ml-24 ml-8 sm:mt-10 mt-6">
+        <Link to={"/"} className="text-xl font-medium flex items-center gap-2">
+          <ArrowLeft size={25} />
+          Back to home
+        </Link>
+      </div>
+      <div className="md:py-24 py-16">
+        <Helmet>
+          <title>Login - Rideflow</title>
+        </Helmet>
+        <RContainer>
+          <div className="md:w-[600px] mx-auto">
+            <RSectionTitle heading="Login now" subHeading="Welcome back" />
+            <RForm handleFormSubmit={handleForm}>
+              <RInput
+                label="Email"
+                name="email"
+                placeholder="Enter your email"
+              />
+              <RInput
+                label="Password"
+                name="password"
+                placeholder="Enter your password"
+              />
+              <RButtonSmall type="submit">Login</RButtonSmall>
+            </RForm>
+            <div className="mt-6">
+              <p>
+                Don not have an account?{" "}
+                <Link
+                  className="underline font-medium hover:text-accentColor duration-200"
+                  to={"/sign-up"}
+                >
+                  Sign Up
+                </Link>
+              </p>
+            </div>
           </div>
-        </div>
-      </RContainer>
-    </div>
+        </RContainer>
+      </div>
+    </section>
   );
 };
 
