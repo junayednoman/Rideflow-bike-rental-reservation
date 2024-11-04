@@ -23,7 +23,7 @@ const DStatCard = ({ color, title, number, prefix, icon }: TStatCardProps) => {
           <h3 className="font-semibold text-xl">
             {prefix} {number}
           </h3>
-          <p className="text-slate-400">In last week</p>
+          {/* <p className="text-slate-400">In last week</p> */}
         </div>
       </div>
     </div>
