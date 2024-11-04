@@ -90,7 +90,7 @@ const MyRentals = () => {
 export default MyRentals;
 
 // paid rental table
-const PaidRentals = ({
+export const PaidRentals = ({
   options,
   loading,
 }: {

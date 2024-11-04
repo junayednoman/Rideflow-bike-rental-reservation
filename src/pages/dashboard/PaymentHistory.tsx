@@ -1,7 +1,29 @@
+import DashboardSectionTitle from "@/components/layout/ui/DashboardSectionTitle";
+import { PaidRentals, TTableProps } from "./MyRentals";
+import { useGetRentalsQuery } from "@/redux/api/rentalApi";
+
 const PaymentHistory = () => {
+  const { data, isLoading } = useGetRentalsQuery(
+    [
+      { name: "myRentals", value: true },
+      { name: "isPaid", value: true },
+    ],
+    { pollingInterval: 2000 }
+  );
+
+  const paidRentalItems = data?.data?.result?.map(
+    ({ startTime, returnTime, totalCost, _id, bikeId }: TTableProps) => ({
+      key: _id,
+      name: bikeId.name,
+      startTime,
+      returnTime,
+      totalCost,
+    })
+  );
   return (
     <section>
-      <h4 className="text-2xl font-semibold">No payment yet!</h4>
+      <DashboardSectionTitle heading="Payment history" />
+      <PaidRentals loading={isLoading} options={paidRentalItems} />
     </section>
   );
 };

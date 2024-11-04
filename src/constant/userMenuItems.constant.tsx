@@ -11,7 +11,7 @@ export const userMenuItems = [
   {
     key: "0",
     icon: <UserOutlined />,
-    label: <NavLink to={"/dashboard/user/profile"}>User Profile</NavLink>,
+    label: <NavLink to={"/dashboard/user/profile"}>Profile</NavLink>,
   },
   {
     key: "2",
