@@ -1,3 +1,4 @@
+import DashboardSectionTitle from "@/components/layout/ui/DashboardSectionTitle";
 import { Helmet } from "react-helmet";
 
 const Coupons = () => {
@@ -6,7 +7,7 @@ const Coupons = () => {
       <Helmet>
         <title>Coupon - Rideflow</title>
       </Helmet>
-      <h1>This is, Coupons component!</h1>
+      <DashboardSectionTitle heading="Manage Coupons" />
     </div>
   );
 };

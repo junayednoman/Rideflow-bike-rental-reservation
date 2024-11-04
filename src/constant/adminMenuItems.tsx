@@ -5,7 +5,12 @@ export const adminMenuItems = [
   {
     key: "1",
     icon: <User size={16} />,
-    label: <NavLink to={"/dashboard/admin"}>Profile</NavLink>,
+    label: <NavLink to={"/dashboard/admin"}>Overview</NavLink>,
+  },
+  {
+    key: "0",
+    icon: <User size={16} />,
+    label: <NavLink to={"/dashboard/admin/profile"}>Profile</NavLink>,
   },
   {
     key: "2",

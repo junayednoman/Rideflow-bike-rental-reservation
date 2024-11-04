@@ -61,6 +61,11 @@ const Login = () => {
     },
   ];
 
+  const userCredentials = {
+    email: "junayednoman06@gmail.com",
+    password: "noman05",
+  };
+
   return (
     <section>
       <div className="md:ml-24 ml-8 sm:mt-10 mt-6">
@@ -83,6 +88,7 @@ const Login = () => {
               <Collapse items={items} />
             </div>
             <RForm
+              defaultValues={userCredentials}
               resolver={zodResolver(loginValidationSchema)}
               handleFormSubmit={handleForm}
             >

@@ -1,3 +1,4 @@
+import AdminOverview from "@/pages/dashboard/AdminOverview";
 import BikesManagement from "@/pages/dashboard/BikesManagement";
 import Coupons from "@/pages/dashboard/Coupons";
 import Profile from "@/pages/dashboard/Profile";
@@ -8,6 +9,10 @@ import Users from "@/pages/dashboard/Users";
 export const adminRoutes = [
   {
     index: true,
+    element: <AdminOverview />,
+  },
+  {
+    path: "profile",
     element: <Profile />,
   },
   {
