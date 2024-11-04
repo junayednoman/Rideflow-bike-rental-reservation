@@ -1,10 +1,15 @@
+import { TRental } from "@/types";
 import Chart from "react-apexcharts";
-const UserGrowth = () => {
+const RidingTimes = ({ rentalData }: { rentalData: TRental[] }) => {
+  const hours = rentalData?.map((item: TRental) =>
+    Number((item?.totalCost / item?.bikeId?.pricePerHour).toFixed(2))
+  );
+
   const userGrowthData = {
     series: [
       {
-        name: "New Users",
-        data: [5, 7, 12, 8, 15, 18, 20], // example counts per day
+        name: "Riding Hours",
+        data: hours, // example counts per day
       },
     ],
   };
@@ -28,18 +33,18 @@ const UserGrowth = () => {
       },
     },
     xaxis: {
-      categories: [
-        "2024-10-01",
-        "2024-10-02",
-        "2024-10-03",
-        "2024-10-04",
-        "2024-10-05",
-        "2024-10-06",
-        "2024-10-07",
-      ],
+      categories: hours.map(
+        (item, i) =>
+          `${
+            (i === 0 && "1st") ||
+            (i === 1 && "2nd") ||
+            (i === 2 && "3rd") ||
+            (i === 3 ? "4rth" : `${i + 1}th`)
+          }`
+      ),
     },
     title: {
-      text: "User Growth",
+      text: "Riding times by hour",
     },
     stroke: {
       curve: "smooth",
@@ -61,4 +66,4 @@ const UserGrowth = () => {
   );
 };
 
-export default UserGrowth;
+export default RidingTimes;

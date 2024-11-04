@@ -1,39 +1,20 @@
 import { BookText, TimerIcon } from "lucide-react";
-import DStatCard from "./DStatCard";
+import DStatCard, { TStatCardProps } from "./DStatCard";
 import { FaMoneyBill } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import { useGetRentalsQuery } from "@/redux/api/rentalApi";
-import RSpinner from "./RSpinner";
 import { TRental } from "@/types";
 
-const UserStats = () => {
-  const { data, isLoading } = useGetRentalsQuery([
-    { name: "myRentals", value: true },
-    { name: "limit", value: 10000 },
-    { name: "isPaid", value: true },
-  ]);
-
-  if (isLoading) {
-    return (
-      <div className="pb-16">
-        <RSpinner mgT="150" />
-      </div>
-    );
-  }
-
-  const rentalData = data?.data?.result;
+const UserStats = ({ rentalData }: { rentalData: TRental[] }) => {
   const spent = rentalData
     ?.map((item: TRental) => item?.totalCost)
     .reduce((a: number, b: number) => a + b, 0)
     .toFixed(0);
-  const hours = rentalData
+  const totalHours = rentalData
     ?.map((item: TRental) => item?.totalCost / item?.bikeId?.pricePerHour)
     .reduce((a: number, b: number) => a + b, 0)
     .toFixed(1);
 
-  console.log("data, ", rentalData[0]);
-
-  const items = [
+  const items: TStatCardProps[] = [
     {
       title: "Total Rents",
       number: rentalData?.length,
@@ -42,14 +23,14 @@ const UserStats = () => {
     },
     {
       title: "Total Spent",
-      number: spent,
+      number: Number(spent),
       icon: <FaMoneyBill size={30} className="text-3xl text-[#5A66F1]" />,
       color: "#EEEFFE",
       prefix: "$",
     },
     {
       title: "Total Hours",
-      number: hours,
+      number: Number(totalHours),
       icon: <TimerIcon size={30} className="text-3xl text-[#fec022]" />,
       color: "#fec02225",
     },

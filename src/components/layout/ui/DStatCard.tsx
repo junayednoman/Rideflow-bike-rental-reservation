@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
-type TStatCardProps = {
+export type TStatCardProps = {
   color: string;
   title: string;
-  number: number;
+  number: number | string;
   prefix?: string;
   icon: ReactNode;
 };
