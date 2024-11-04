@@ -30,7 +30,10 @@ const SignUp = () => {
   return (
     <section>
       <div className="md:ml-24 ml-8 sm:mt-10 mt-6">
-        <Link to={"/"} className="text-xl font-medium flex items-center gap-2">
+        <Link
+          to={"/"}
+          className="text-xl font-medium flex w-fit items-center gap-2"
+        >
           <ArrowLeft size={25} />
           Back to home
         </Link>
@@ -70,7 +73,7 @@ const SignUp = () => {
                 name="address"
                 placeholder="enter your address"
               />
-              <RButtonSmall type="submit">Submit</RButtonSmall>
+              <RButtonSmall type="submit">Sign Up</RButtonSmall>
             </RForm>
             <div className="mt-6">
               <p>

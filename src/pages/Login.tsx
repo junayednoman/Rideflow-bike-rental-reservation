@@ -13,7 +13,9 @@ import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import { TJwtPayload, TResponse, TUser } from "@/types";
 import { Helmet } from "react-helmet";
 import { ArrowLeft } from "lucide-react";
-
+import { Collapse, CollapseProps } from "antd";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginValidationSchema } from "@/validation";
 const Login = () => {
   const location = useLocation();
 
@@ -35,11 +37,37 @@ const Login = () => {
   };
   const handleForm: SubmitHandler<FieldValues> = (data) => {
     handleMutation(data, login, "User is being logged in...", onSuccess);
+    console.log("data", data);
   };
+
+  const items: CollapseProps["items"] = [
+    {
+      key: "1",
+      label: "Credentials",
+      children: (
+        <div className="flex items-center flex-wrap gap-6">
+          <div>
+            <h4>Admin</h4>
+            <p>email: junayednoman05@gmail.com</p>
+            <p>pass: noman05</p>
+          </div>
+          <div>
+            <h4>User</h4>
+            <p>email: junayednoman06@gmail.com</p>
+            <p>pass: noman05</p>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
   return (
     <section>
       <div className="md:ml-24 ml-8 sm:mt-10 mt-6">
-        <Link to={"/"} className="text-xl font-medium flex items-center gap-2">
+        <Link
+          to={"/"}
+          className="text-xl font-medium flex w-fit items-center gap-2"
+        >
           <ArrowLeft size={25} />
           Back to home
         </Link>
@@ -51,7 +79,13 @@ const Login = () => {
         <RContainer>
           <div className="md:w-[600px] mx-auto">
             <RSectionTitle heading="Login now" subHeading="Welcome back" />
-            <RForm handleFormSubmit={handleForm}>
+            <div className="flex gap-1 mb-6">
+              <Collapse items={items} />
+            </div>
+            <RForm
+              resolver={zodResolver(loginValidationSchema)}
+              handleFormSubmit={handleForm}
+            >
               <RInput
                 label="Email"
                 name="email"
