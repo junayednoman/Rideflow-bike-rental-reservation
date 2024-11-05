@@ -7,12 +7,12 @@ import { TRental } from "@/types";
 const UserStats = ({ rentalData }: { rentalData: TRental[] }) => {
   const spent = rentalData
     ?.map((item: TRental) => item?.totalCost)
-    .reduce((a: number, b: number) => a + b, 0)
-    .toFixed(0);
+    ?.reduce((a: number, b: number) => a + b, 0)
+    ?.toFixed(0);
   const totalHours = rentalData
     ?.map((item: TRental) => item?.totalCost / item?.bikeId?.pricePerHour)
-    .reduce((a: number, b: number) => a + b, 0)
-    .toFixed(1);
+    ?.reduce((a: number, b: number) => a + b, 0)
+    ?.toFixed(1);
 
   const items: TStatCardProps[] = [
     {

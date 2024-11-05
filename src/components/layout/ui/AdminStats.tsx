@@ -12,8 +12,8 @@ const AdminStats = ({ rentalData }: { rentalData: TRental[] }) => {
 
   const totalRevenue = rentalData
     ?.map((item: TRental) => item?.totalCost)
-    .reduce((a: number, b: number) => a + b, 0)
-    .toFixed(0);
+    ?.reduce((a: number, b: number) => a + b, 0)
+    ?.toFixed(0);
 
   const items = [
     {
