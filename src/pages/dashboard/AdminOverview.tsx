@@ -4,6 +4,7 @@ import RSpinner from "@/components/layout/ui/RSpinner";
 import UserGrowth from "@/components/layout/ui/UserGrowth";
 import { useGetRentalsQuery } from "@/redux/api/rentalApi";
 import { TRental } from "@/types";
+import Rentals from "./Rentals";
 
 const AdminOverview = () => {
   const { data, isLoading } = useGetRentalsQuery([
@@ -40,7 +41,9 @@ const AdminOverview = () => {
             <BikeBrandsChart title="Bikes by brand" brandCounts={brandCounts} />
           </div>
         </div>
-        <div className="mt-14">{/* <ManagePosts /> */}</div>
+        <div className="mt-14">
+          <Rentals />
+        </div>
       </section>
     </main>
   );

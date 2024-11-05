@@ -38,6 +38,7 @@ const CalculateRentalCostModel = ({
       setReset(true);
     };
     const rentalEndTime = data?.endTime?.format("HH:mm");
+
     handleMutation(
       { rentalEndTime, rentalId },
       returnBike,
