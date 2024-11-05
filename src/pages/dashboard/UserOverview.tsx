@@ -3,6 +3,7 @@ import RidingTimes from "@/components/layout/ui/RidingTimes";
 import RSpinner from "@/components/layout/ui/RSpinner";
 import UserStats from "@/components/layout/ui/UserStats";
 import { useGetRentalsQuery } from "@/redux/api/rentalApi";
+import { TRental } from "@/types";
 
 const UserOverview = () => {
   const { data, isLoading } = useGetRentalsQuery([
@@ -19,6 +20,14 @@ const UserOverview = () => {
     );
   }
   const rentalData = data?.data?.result;
+  const brands = rentalData?.map((item: TRental) => item.bikeId.brand);
+  const brandCounts = brands.reduce(
+    (acc: Record<string, number>, brand: string) => {
+      acc[brand] = (acc[brand] || 0) + 1;
+      return acc;
+    },
+    {} as Record<string, any>
+  );
   return (
     <main>
       <section>
@@ -28,7 +37,10 @@ const UserOverview = () => {
             <RidingTimes rentalData={rentalData} />
           </div>
           <div className="sm:w-[350px] w-[250px]">
-            <BikeBrandsChart rentalData={rentalData} />
+            <BikeBrandsChart
+              title="Rented bikes by brand"
+              brandCounts={brandCounts}
+            />
           </div>
         </div>
         <div className="mt-14">{/* <ManagePosts /> */}</div>

@@ -1,16 +1,15 @@
-import { TRental } from "@/types";
 import Chart from "react-apexcharts";
-const BikeBrandsChart = ({ rentalData }: { rentalData: TRental[] }) => {
-  const brands = rentalData?.map((item: TRental) => item.bikeId.brand);
-  const counts = brands.reduce((acc, brand) => {
-    acc[brand] = (acc[brand] || 0) + 1;
-    return acc;
-  }, {});
-
+const BikeBrandsChart = ({
+  brandCounts,
+  title,
+}: {
+  brandCounts: Record<string, number>;
+  title: string;
+}) => {
   // Data for post categories
   const postCategoryData = {
-    series: Object.values(counts), // Example data: percentages or count of posts per category
-    labels: Object.keys(counts), // Example categories
+    series: Object.values(brandCounts), // Example data: percentages or count of posts per category
+    labels: Object.keys(brandCounts), // Example categories
   };
 
   // Options for the pie chart
@@ -33,7 +32,7 @@ const BikeBrandsChart = ({ rentalData }: { rentalData: TRental[] }) => {
     },
     labels: postCategoryData.labels,
     title: {
-      text: "Rented bikes by brand",
+      text: title,
       align: "center",
     },
     legend: {

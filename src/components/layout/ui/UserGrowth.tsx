@@ -1,15 +1,20 @@
+import { TRental } from "@/types";
 import Chart from "react-apexcharts";
-const UserGrowth = () => {
-  const userGrowthData = {
+const RevenueGrowth = ({ rentalData }: { rentalData: TRental[] }) => {
+  const revenues = rentalData
+    ?.slice(rentalData?.length - 10, rentalData?.length)
+    ?.map((item) => Number(item.totalCost.toFixed(1)));
+
+  const RevenueGrowthData = {
     series: [
       {
-        name: "New Users",
-        data: [5, 7, 12, 8, 15, 18, 20], // example counts per day
+        name: "Revenue",
+        data: revenues, // example counts per day
       },
     ],
   };
 
-  const userGrowthOptions = {
+  const RevenueGrowthOptions = {
     chart: {
       type: "line",
       height: 350,
@@ -28,18 +33,18 @@ const UserGrowth = () => {
       },
     },
     xaxis: {
-      categories: [
-        "2024-10-01",
-        "2024-10-02",
-        "2024-10-03",
-        "2024-10-04",
-        "2024-10-05",
-        "2024-10-06",
-        "2024-10-07",
-      ],
+      categories: revenues.map(
+        (item, i) =>
+          `${
+            (i === 0 && "1st") ||
+            (i === 1 && "2nd") ||
+            (i === 2 && "3rd") ||
+            (i === 3 ? "4rth" : `${i + 1}th`)
+          }`
+      ),
     },
     title: {
-      text: "User Growth",
+      text: "Revenue of the last 10 rentals",
     },
     stroke: {
       curve: "smooth",
@@ -52,8 +57,8 @@ const UserGrowth = () => {
   return (
     <div>
       <Chart
-        options={userGrowthOptions as ApexCharts.ApexOptions}
-        series={userGrowthData.series}
+        options={RevenueGrowthOptions as ApexCharts.ApexOptions}
+        series={RevenueGrowthData.series}
         type="line"
         height={350}
       />
@@ -61,4 +66,4 @@ const UserGrowth = () => {
   );
 };
 
-export default UserGrowth;
+export default RevenueGrowth;
