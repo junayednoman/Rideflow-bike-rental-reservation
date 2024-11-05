@@ -34,7 +34,7 @@ const RevenueGrowth = ({ rentalData }: { rentalData: TRental[] }) => {
     },
     xaxis: {
       categories: revenues.map(
-        (item, i) =>
+        (_item, i) =>
           `${
             (i === 0 && "1st") ||
             (i === 1 && "2nd") ||

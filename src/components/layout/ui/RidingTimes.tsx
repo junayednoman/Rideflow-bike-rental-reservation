@@ -34,7 +34,7 @@ const RidingTimes = ({ rentalData }: { rentalData: TRental[] }) => {
     },
     xaxis: {
       categories: hours.map(
-        (item, i) =>
+        (_item, i) =>
           `${
             (i === 0 && "1st") ||
             (i === 1 && "2nd") ||
